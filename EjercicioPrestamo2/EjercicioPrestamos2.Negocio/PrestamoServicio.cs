@@ -32,5 +32,7 @@ namespace EjercicioPrestamos2.Negocio
             else
                 throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultante.Error);
         }
+
+        
     }
 }
