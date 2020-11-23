@@ -33,6 +33,11 @@ namespace EjercicioPrestamos2.Negocio
                 throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultante.Error);
         }
 
-        
+        public int ProximoId()
+        {
+            List<Prestamo> prestamos = TraerPrestamos();
+            return prestamos.Max(Prestamo => Prestamo.Id) + 1;
+        }
+
     }
 }

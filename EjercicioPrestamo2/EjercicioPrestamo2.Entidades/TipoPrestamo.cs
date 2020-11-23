@@ -24,6 +24,7 @@ namespace EjercicioPrestamo2.Entidades
         {
 
         }
+
         [DataMember]
         //PROPIEDADES
         public string Linea
@@ -31,6 +32,7 @@ namespace EjercicioPrestamo2.Entidades
             set { _linea = value; }
             get { return _linea;  }
         }
+
         [DataMember]
         public double TNA
         {

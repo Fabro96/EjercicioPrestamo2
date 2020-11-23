@@ -48,10 +48,10 @@
             this.lstTiposPrestamo = new System.Windows.Forms.ListBox();
             this.lblTipoPrestamo = new System.Windows.Forms.Label();
             this.panelPrestamos = new System.Windows.Forms.Panel();
-            this.lblPrestamos = new System.Windows.Forms.Label();
-            this.lstPrestamos = new System.Windows.Forms.ListBox();
-            this.lblComsionTotal = new System.Windows.Forms.Label();
             this.txtComisionTotal = new System.Windows.Forms.TextBox();
+            this.lblComsionTotal = new System.Windows.Forms.Label();
+            this.lstPrestamos = new System.Windows.Forms.ListBox();
+            this.lblPrestamos = new System.Windows.Forms.Label();
             this.panelTipoPrestamo.SuspendLayout();
             this.panelPrestamos.SuspendLayout();
             this.SuspendLayout();
@@ -86,22 +86,25 @@
             // 
             this.txtCuotaTotal.Location = new System.Drawing.Point(472, 390);
             this.txtCuotaTotal.Name = "txtCuotaTotal";
+            this.txtCuotaTotal.ReadOnly = true;
             this.txtCuotaTotal.Size = new System.Drawing.Size(96, 22);
-            this.txtCuotaTotal.TabIndex = 17;
+            this.txtCuotaTotal.TabIndex = 18;
             // 
             // txtCuotaInteres
             // 
             this.txtCuotaInteres.Location = new System.Drawing.Point(472, 345);
             this.txtCuotaInteres.Name = "txtCuotaInteres";
+            this.txtCuotaInteres.ReadOnly = true;
             this.txtCuotaInteres.Size = new System.Drawing.Size(96, 22);
-            this.txtCuotaInteres.TabIndex = 16;
+            this.txtCuotaInteres.TabIndex = 17;
             // 
             // txtCuotaCapital
             // 
             this.txtCuotaCapital.Location = new System.Drawing.Point(472, 300);
             this.txtCuotaCapital.Name = "txtCuotaCapital";
+            this.txtCuotaCapital.ReadOnly = true;
             this.txtCuotaCapital.Size = new System.Drawing.Size(96, 22);
-            this.txtCuotaCapital.TabIndex = 15;
+            this.txtCuotaCapital.TabIndex = 16;
             // 
             // txtPlazo
             // 
@@ -110,6 +113,7 @@
             this.txtPlazo.Name = "txtPlazo";
             this.txtPlazo.Size = new System.Drawing.Size(137, 22);
             this.txtPlazo.TabIndex = 14;
+            this.txtPlazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlazo_KeyPress);
             // 
             // txtMonto
             // 
@@ -118,6 +122,7 @@
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(137, 22);
             this.txtMonto.TabIndex = 13;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // txtTNA
             // 
@@ -171,9 +176,10 @@
             this.btnAltaPrestamo.Location = new System.Drawing.Point(330, 433);
             this.btnAltaPrestamo.Name = "btnAltaPrestamo";
             this.btnAltaPrestamo.Size = new System.Drawing.Size(238, 41);
-            this.btnAltaPrestamo.TabIndex = 7;
+            this.btnAltaPrestamo.TabIndex = 19;
             this.btnAltaPrestamo.Text = "ALTA";
             this.btnAltaPrestamo.UseVisualStyleBackColor = true;
+            this.btnAltaPrestamo.Click += new System.EventHandler(this.btnAltaPrestamo_Click);
             // 
             // btnSimular
             // 
@@ -181,7 +187,7 @@
             this.btnSimular.Location = new System.Drawing.Point(330, 246);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(238, 31);
-            this.btnSimular.TabIndex = 6;
+            this.btnSimular.TabIndex = 15;
             this.btnSimular.Text = "SIMULAR";
             this.btnSimular.UseVisualStyleBackColor = true;
             this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
@@ -254,9 +260,37 @@
             this.panelPrestamos.Controls.Add(this.lblPrestamos);
             this.panelPrestamos.Location = new System.Drawing.Point(622, 26);
             this.panelPrestamos.Name = "panelPrestamos";
-            this.panelPrestamos.Size = new System.Drawing.Size(393, 479);
+            this.panelPrestamos.Size = new System.Drawing.Size(673, 479);
             this.panelPrestamos.TabIndex = 1;
             this.panelPrestamos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrestamos_Paint);
+            // 
+            // txtComisionTotal
+            // 
+            this.txtComisionTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComisionTotal.Location = new System.Drawing.Point(192, 447);
+            this.txtComisionTotal.Name = "txtComisionTotal";
+            this.txtComisionTotal.ReadOnly = true;
+            this.txtComisionTotal.Size = new System.Drawing.Size(180, 27);
+            this.txtComisionTotal.TabIndex = 12;
+            // 
+            // lblComsionTotal
+            // 
+            this.lblComsionTotal.AutoSize = true;
+            this.lblComsionTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComsionTotal.Location = new System.Drawing.Point(17, 454);
+            this.lblComsionTotal.Name = "lblComsionTotal";
+            this.lblComsionTotal.Size = new System.Drawing.Size(141, 20);
+            this.lblComsionTotal.TabIndex = 11;
+            this.lblComsionTotal.Text = "Comisión Total:";
+            // 
+            // lstPrestamos
+            // 
+            this.lstPrestamos.FormattingEnabled = true;
+            this.lstPrestamos.ItemHeight = 16;
+            this.lstPrestamos.Location = new System.Drawing.Point(21, 62);
+            this.lstPrestamos.Name = "lstPrestamos";
+            this.lstPrestamos.Size = new System.Drawing.Size(637, 372);
+            this.lstPrestamos.TabIndex = 2;
             // 
             // lblPrestamos
             // 
@@ -268,38 +302,11 @@
             this.lblPrestamos.TabIndex = 1;
             this.lblPrestamos.Text = "PRESTAMOS DADOS DE ALTA";
             // 
-            // lstPrestamos
-            // 
-            this.lstPrestamos.FormattingEnabled = true;
-            this.lstPrestamos.ItemHeight = 16;
-            this.lstPrestamos.Location = new System.Drawing.Point(21, 62);
-            this.lstPrestamos.Name = "lstPrestamos";
-            this.lstPrestamos.Size = new System.Drawing.Size(351, 356);
-            this.lstPrestamos.TabIndex = 2;
-            // 
-            // lblComsionTotal
-            // 
-            this.lblComsionTotal.AutoSize = true;
-            this.lblComsionTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComsionTotal.Location = new System.Drawing.Point(17, 443);
-            this.lblComsionTotal.Name = "lblComsionTotal";
-            this.lblComsionTotal.Size = new System.Drawing.Size(141, 20);
-            this.lblComsionTotal.TabIndex = 11;
-            this.lblComsionTotal.Text = "Comisión Total:";
-            // 
-            // txtComisionTotal
-            // 
-            this.txtComisionTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComisionTotal.Location = new System.Drawing.Point(192, 436);
-            this.txtComisionTotal.Name = "txtComisionTotal";
-            this.txtComisionTotal.Size = new System.Drawing.Size(180, 27);
-            this.txtComisionTotal.TabIndex = 12;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 555);
+            this.ClientSize = new System.Drawing.Size(1307, 555);
             this.Controls.Add(this.panelPrestamos);
             this.Controls.Add(this.panelTipoPrestamo);
             this.Name = "Form1";

@@ -27,8 +27,7 @@ namespace EjercicioPrestamo2.Entidades
 
         //PROPIEDADES
         public List<Prestamo> Prestamos
-        {
-            set { _prestamos = value; }
+        { 
             get { return _prestamos;  }
         }
         public double Comision
@@ -40,6 +39,7 @@ namespace EjercicioPrestamo2.Entidades
         {
             get { return _porcentajeComision; }
         }
+
         //MÉTODOS
 
     }

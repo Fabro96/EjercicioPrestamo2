@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\CamposVaciosAltaException.cs" />
     <Compile Include="Exceptions\CamposVaciosSimularException.cs" />
     <Compile Include="Exceptions\NoHayTipoPrestamoException.cs" />
     <Compile Include="Operador.cs" />
